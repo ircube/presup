@@ -6,12 +6,12 @@
     <packaging>war</packaging>
     <version>1.0</version>
 
-    <groupId>com.google.devrel.training.conference</groupId>
-    <artifactId>conference</artifactId>
+    <groupId>com.presup</groupId>
+    <artifactId>presup</artifactId>
 
     <properties>
         <appengine.app.version>1</appengine.app.version>
-        <appengine.target.version>1.9.3</appengine.target.version>
+        <appengine.target.version>1.9.21</appengine.target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
