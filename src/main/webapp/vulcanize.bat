@@ -1,1 +1,1 @@
-vulcanize base.index.html > index.html \ --csp --strip
+vulcanize base.index.html > index.html
