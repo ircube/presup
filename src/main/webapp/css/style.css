@@ -1,0 +1,9 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #fbfbfb;
+    font-family: 'RobotoDraft', sans-serif;
+    font-weight: 200;
+    font-size: medium;
+    padding: 0;
+}
