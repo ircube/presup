@@ -1,44 +1,28 @@
 package com.presup.spi;
 
-import static com.presup.service.OfyService.factory;
-import static com.presup.service.OfyService.ofy;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import javax.inject.Named;
-
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiMethod.HttpMethod;
-import com.google.api.server.spi.response.ConflictException;
-import com.google.api.server.spi.response.ForbiddenException;
-import com.google.api.server.spi.response.NotFoundException;
+import com.google.api.server.spi.config.Named;
 import com.google.api.server.spi.response.UnauthorizedException;
-import com.google.appengine.api.memcache.MemcacheService;
-import com.google.appengine.api.memcache.MemcacheServiceFactory;
-import com.google.appengine.api.taskqueue.Queue;
-import com.google.appengine.api.taskqueue.QueueFactory;
-import com.google.appengine.api.taskqueue.TaskOptions;
 import com.google.appengine.api.users.User;
-import com.presup.Constants;
-
 import com.googlecode.objectify.Key;
-import com.googlecode.objectify.Work;
-import com.googlecode.objectify.cmd.Query;
+import com.presup.Constants;
 import com.presup.kind.Profile;
+import com.presup.kind.UserPresup;
+
+import static com.presup.service.OfyService.ofy;
 
 /**
  * Defines Presup APIs.
  */
-@Api(name = "presup", version = "v1",
-        scopes = { Constants.EMAIL_SCOPE }, clientIds = {
+@Api(name = "presupEndpoints", version = "v1",
+        scopes = { Constants.EMAIL_SCOPE },
+        clientIds = {
         Constants.WEB_CLIENT_ID,
         Constants.API_EXPLORER_CLIENT_ID },
         description = "API for the Presup Backend application.")
 public class PresupApi {
-
     /*
      * Get the display name from the user's email. For example, if the email is
      * lemoncake@example.com, then the display name becomes "lemoncake."
@@ -66,5 +50,9 @@ public class PresupApi {
         return profile;
     }
 
+    @ApiMethod(name = "getByName", path = "byName", httpMethod = HttpMethod.GET )
+    public UserPresup getByName( @Named("yourName") String name ){
+        return new UserPresup(name);
+    }
 
 }

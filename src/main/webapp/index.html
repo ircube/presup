@@ -18,8 +18,10 @@
   <link rel="import" href="components/bower_components/iron-icon/iron-icon.html">
   <link rel="import" href="components/bower_components/iron-icons/iron-icons.html">
 
-
   <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script src="js/script.js"></script>
+  <script src="https://apis.google.com/js/client.js?onload=init" ></script>
+
 </head>
 <body>
 <paper-drawer-panel>
@@ -39,14 +41,17 @@
       <h3>crea, caclula y organiza tus presupuestos</h3>
       <p>esta aplicacion es lo mejor</p>
       <p> jejeje tercera prueba </p>
-      <paper-button>flat button</paper-button>
-      <paper-button raised>raised button</paper-button>
-      <paper-button noink>No ripple effect</paper-button>
-      <paper-icon-button icon="menu"></paper-icon-button>
+
+
+      your name <input type="text" value="Zebra" id="yourName" />
+      <paper-button id="endpointsButton" onclick="willBeSetAfterEndpointsLoaded">Endpoints</paper-button>
+
+      <div id="result"></div>
+
+
     </div>
   </paper-header-panel>
 </paper-drawer-panel>
-
 
 </body>
 </html>
