@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Administrador on 09/06/2015.
+ * Created by Ivo on 09/06/2015.
  */
 public class Project {
     private String name;

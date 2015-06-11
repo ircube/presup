@@ -1,7 +1,7 @@
 package com.presup.kind;
 
 /**
- * Created by Administrador on 08/06/2015.
+ * Created by Ivo on 08/06/2015.
  */
 public class UserPresup {
 
