@@ -14,7 +14,6 @@ public class OfyService {
      * This static block ensure the entity registration.
      */
     static {
-
         factory().register(Profile.class);
     }
 

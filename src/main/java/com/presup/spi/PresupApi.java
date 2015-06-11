@@ -8,6 +8,7 @@ import com.google.api.server.spi.response.UnauthorizedException;
 import com.google.appengine.api.users.User;
 import com.googlecode.objectify.Key;
 import com.presup.Constants;
+import com.presup.form.ProfileForm;
 import com.presup.kind.Profile;
 import com.presup.kind.UserPresup;
 
@@ -41,18 +42,33 @@ public class PresupApi {
             throw new UnauthorizedException("Authorization required");
         }
 
-        // TODO
-        // load the Profile Entity
         String userId = user.getUserId();
         Key key = Key.create(Profile.class, userId);
-
         Profile profile = (Profile) ofy().load().key(key).now();
         return profile;
     }
 
     @ApiMethod(name = "getByName", path = "byName", httpMethod = HttpMethod.GET )
-    public UserPresup getByName( @Named("yourName") String name ){
+    public UserPresup getByName( @Named("yourName") String name ) {
+
+        Key key = Key.create(Profile.class, name);
+        Profile profile = (Profile) ofy().load().key(key).now();
         return new UserPresup(name);
     }
 
+    @ApiMethod(name = "saveProfile", path = "saveProfile", httpMethod = HttpMethod.POST )
+    public Profile  saveProfile ( final User user, ProfileForm profileForm ) throws UnauthorizedException {
+        String mail;
+        String userId;
+        if ( user == null ){
+            throw new UnauthorizedException("autorizacion requerida");
+        }
+        mail = user.getEmail();
+        userId = user.getUserId();
+        if ( profileForm.getDisplayName()== null ){
+
+        }
+        return new Profile( userId,mail );
+
+    }
 }

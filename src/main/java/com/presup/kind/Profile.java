@@ -13,49 +13,11 @@ import com.googlecode.objectify.annotation.Id;
 @Cache
 
 public class Profile {
-    String displayName;
-    String mainEmail;
 
     @Id String userId;
-
-    /**
-     * Keys of the conferences that this user registers to attend.
-     */
-    private List<String> conferenceKeysToAttend = new ArrayList<>(0);
-
-    /**
-     * Public constructor for Profile.
-     * @param userId The user id, obtained from the email
-     * @param displayName Any string user wants us to display him/her on this system.
-     * @param mainEmail User's main e-mail address.
-     *
-     */
-    public Profile (String userId, String displayName, String mainEmail) {
-        this.userId = userId;
-        this.displayName = displayName;
-        this.mainEmail = mainEmail;
-
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public String getMainEmail() {
-        return mainEmail;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    /**
-     * Getter for conferenceIdsToAttend.
-     * @return an immutable copy of conferenceIdsToAttend.
-     */
-    public List<String> getConferenceKeysToAttend() {
-        return ImmutableList.copyOf(conferenceKeysToAttend);
-    }
+    String email;
+    String name;
+    private List<String> projectKeys = new ArrayList<>(0);
 
     /**
      * Just making the default constructor private.
@@ -63,14 +25,58 @@ public class Profile {
     private Profile() {}
 
     /**
+     * Public constructor for Profile.
+     * @param userId The user id, obtained from the email
+     * @param email User's main e-mail address.
+     *
+     */
+    public Profile (String userId, String email) {
+        this.userId = userId;
+        this.email = email;
+    }
+
+    /**
+     * Getter for projects.
+     * @return an immutable copy of projects.
+     */
+    public List<String> getProjectKeys() {
+        return ImmutableList.copyOf(projectKeys);
+    }
+
+    /**
      * Update the Profile with the given displayName and teeShirtSize
      *
-     * @param displayName
+     * @param email User's main e-mail address.
      */
-    public void update(String displayName) {
-        if (displayName != null) {
-            this.displayName = displayName;
+
+    public void setEmail(String email) {
+        if (email != null) {
+            this.email = email;
         }
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setProjectKeys(List<String> projectKeys) {
+        this.projectKeys = projectKeys;
+    }
+
+    /*
+    * Add a project to this profile.
+    *
+    * @param projectKey to add.
+    * */
+    public boolean addProject ( String projectKey ){
+        return this.projectKeys.add(projectKey);
+    }
 }
