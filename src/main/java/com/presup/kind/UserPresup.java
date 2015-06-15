@@ -11,6 +11,8 @@ public class UserPresup {
     }
 
     public UserPresup( String name ){
+        if (name == null)
+            name = "";
         this.name = "User Presup: " + name;
     }
 

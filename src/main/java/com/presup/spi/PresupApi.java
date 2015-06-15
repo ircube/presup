@@ -12,7 +12,12 @@ import com.presup.form.ProfileForm;
 import com.presup.kind.Profile;
 import com.presup.kind.UserPresup;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+
 import static com.presup.service.OfyService.ofy;
+
 
 /**
  * Defines Presup APIs.
@@ -28,6 +33,7 @@ public class PresupApi {
      * Get the display name from the user's email. For example, if the email is
      * lemoncake@example.com, then the display name becomes "lemoncake."
      */
+
     private static final Boolean True = null;
     private static final Boolean False = null;
 
@@ -49,12 +55,24 @@ public class PresupApi {
     }
 
     @ApiMethod(name = "getByName", path = "byName", httpMethod = HttpMethod.GET )
-    public UserPresup getByName( @Named("yourName") String name ) {
+    public UserPresup getByName( @Named("yourName") String name ) throws UnsupportedEncodingException {
+        System.out.println("name: "+name);
 
-        Key key = Key.create(Profile.class, name);
-        Profile profile = (Profile) ofy().load().key(key).now();
+        String newString = new String(name.getBytes("UTF-8"), "UTF-8");
+
+        System.out.println("newString: "+newString);
+
+        if (name == null || name == "" ){
+            name ="error";
+            throw new NullPointerException("nombre vacio") ;
+        }else{
+            Key key = Key.create(Profile.class, name);
+            Profile profile = (Profile) ofy().load().key(key).now();
+        }
+
         return new UserPresup(name);
     }
+
 
     @ApiMethod(name = "saveProfile", path = "saveProfile", httpMethod = HttpMethod.POST )
     public Profile  saveProfile ( final User user, ProfileForm profileForm ) throws UnauthorizedException {
