@@ -1,0 +1,62 @@
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+
+<dom-module id="my-header">
+
+  <style>
+
+    :host {
+    @apply(--layout-horizontal);
+    @apply(--paper-font-body2);
+      color: var(--google-grey-100);
+
+    @apply(--shadow-elevation-3dp);
+    }
+
+    [header] {
+    @apply(--layout-horizontal);
+    @apply(--layout-center);
+    @apply(--paper-font-title);
+
+      height: 70px;
+      background-color: var(--paper-blue-200);
+      padding: 0 16px;
+      width: 100%;
+    }
+
+    [header] div {
+      @apply(--layout-flex);
+      padding: 8px;
+    }
+
+
+    paper-icon-button{
+      @apply(--paper-icon-button-disabled);
+    }
+
+
+
+
+  </style>
+
+  <template>
+    <div header>
+      <div tool>Presup</div>
+      <div tool>
+        <paper-icon-button icon="search" ></paper-icon-button>
+      </div>
+
+      <div tool>Contenido3 </div>
+    </div>
+  </template>
+
+</dom-module>
+<script>
+
+  Polymer({
+    is: 'my-header'
+  });
+
+</script>
+

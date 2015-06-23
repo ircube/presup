@@ -1,0 +1,32 @@
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+
+<link rel="import" href="my-header.html">
+<link rel="import" href="my-content.html">
+
+<dom-module id="my-main">
+
+  <style>
+
+    :host {
+    @apply(--layout-flex);
+    @apply(--layout-vertical);
+    }
+
+  </style>
+
+  <template>
+    <my-header></my-header>
+    <my-content>
+      <content></content>
+    </my-content>
+  </template>
+
+</dom-module>
+<script>
+
+  Polymer({
+    is: 'my-main'
+  });
+</script>
+

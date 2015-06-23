@@ -1,0 +1,71 @@
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
+
+<dom-module id="p-item">
+  <style>
+    paper-fab{
+      background-color: white;
+      color: black;
+    }
+    .horizontal{
+      @apply(--layout-horizontal);
+      @apply(--layout-center);
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .pieceInfo{
+
+    }
+    .small{
+    @apply(--layout-flex);
+    }
+    .medium{
+    @apply(--layout-flex-2);
+    }
+
+    .big{
+    @apply(--layout-flex-8);
+    }
+
+  </style>
+
+  <template>
+    <div class="horizontal" >
+      <div id="more" class="pieceInfo small" ><paper-fab mini icon="arrow-drop-down" on-click="toggle" > whatevers </paper-fab></div>
+      <div class="pieceInfo medium" >a</div>
+      <div class="pieceInfo big" >a</div>
+      <div class="pieceInfo small" >a</div>
+      <div class="pieceInfo small" >a</div>
+      <div class="pieceInfo small" >a</div>
+    </div>
+
+    <iron-collapse id="collapse">
+      a lot of thigs will be here
+    </iron-collapse>
+
+  </template>
+
+</dom-module>
+<script>
+  Polymer({
+    is: 'p-item',
+    toggle: function() {
+      this.$.collapse.toggle();
+
+
+    },
+    ready: function() {
+      this.myItems = [
+        {name: 'Chips', amount: '10' ,unit:'pouch' ,price:'2'},
+        {name: 'Cable', amount: '5' ,unit:'Meters' ,price:'4'},
+        {name: 'Beer', amount: '2' ,unit:'decanters' ,price:'200'},
+        {name: 'Helio ballons', amount: '2' ,unit:'Packs' ,price:'20'},
+        {name: 'Chair', amount: '10' ,unit:'Units' ,price:'5'}
+      ];
+    }
+  })
+</script>
+

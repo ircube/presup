@@ -24,69 +24,22 @@
   <link rel="import" href="components/bower_components/paper-menu/paper-menu.html">
   <link rel="import" href="components/bower_components/paper-item/paper-item.html">
   <link rel="import" href="components/bower_components/neon-animation/neon-animation.html">
+  <link rel="import" href="components/bower_components/neon-animation/neon-animated-pages.html">
+
+  <link rel="import" href="components/my_components/my-main.html">
+  <link rel="import" href="components/my_components/p-item.html">
 
   <link href="css/style.css" rel="stylesheet" type="text/css">
 
   <script src="js/script.js"></script>
-  <script src="https://apis.google.com/js/client.js?onload=init" ></script>
 
 </head>
 <body>
 
-<paper-drawer-panel>
-  <paper-header-panel drawer>
-    <paper-toolbar>
-      <div> </div>
-    </paper-toolbar>
-    <div>
-      <paper-menu>
-        <paper-item>Perfil</paper-item>
-        <paper-item>Proyectos</paper-item>
-        <paper-item>Colaboradores</paper-item>
-      </paper-menu>
-    </div>
-  </paper-header-panel>
-  <paper-header-panel main>
-    <paper-toolbar>
-      <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-      <div>Presup</div>
-    </paper-toolbar>
-    <div id="mainContent" class="centered sidesBorder">
 
-      <h2>presup</h2>
-      <h3>create and store your budgets</h3>
-      <div horizontal layout>
-        <div flex three>
-          <paper-input  flex type="text"  id="yourName" label="nombre"></paper-input>
-        </div>
-        <div flex>
-           <paper-button disabled raised="true" id="endpointsButton" onclick="loadingEndpoint">
-            ok
-          </paper-button>
-        </div>
-      </div>
-
-      <div horizontal layout >
-        <form accept-charset="ISO-8859-1">
-          <paper-input-container>
-            <label>Your name</label>
-            <input is="iron-input">
-          </paper-input-container>
-
-          <input is="paper-button" type="submit" value="Submit">
-        </form>
-      </div>
-
-
-      <br/>
-      <paper-spinner id="spinerEB" alt="Loading contacts list" ></paper-spinner>
-      <div id="result"></div>
-    </div>
-
-  </paper-header-panel>
-</paper-drawer-panel>
-
-<paper-toast id="toast1" text="text pruev" ></paper-toast>
+<my-main>
+  <div> <p-item></p-item> </div>
+</my-main>
 
 </body>
 </html>
