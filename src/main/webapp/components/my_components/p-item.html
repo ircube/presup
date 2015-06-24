@@ -3,6 +3,22 @@
 <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="../bower_components/left-swipe-action/left-swipe-action.html">
+<link rel="import" href="../bower_components/left-swipe-action/left-swipe-action.html">
+
+
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/neon-animation/animations/scale-up-animation.html">
+<link rel="import" href="../bower_components/neon-animation/animations/fade-out-animation.html">
+
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+
+
+
+
 
 <dom-module id="p-item">
   <style>
@@ -10,41 +26,192 @@
       background-color: white;
       color: black;
     }
+
+
     .horizontal{
       @apply(--layout-horizontal);
       @apply(--layout-center);
+      min-height: 70px;
+
+    }
+    .spaceEnd{
+      padding-right: 16px;
+
+    }
+    .spaceBothSides{
       padding-left: 16px;
       padding-right: 16px;
+
     }
     .pieceInfo{
 
     }
     .small{
-    @apply(--layout-flex);
+      @apply(--layout-flex);
     }
     .medium{
-    @apply(--layout-flex-2);
+      @apply(--layout-flex-2);
     }
 
     .big{
-    @apply(--layout-flex-8);
+      @apply(--layout-flex-6);
+    }
+    #collapse{
+      margin-left: 10px;
+      border-left: solid 8px #f0f0f0;
+    }
+    [swipePanel] {
+      min-height: 70px;
     }
 
   </style>
 
   <template>
-    <div class="horizontal" >
-      <div id="more" class="pieceInfo small" ><paper-fab mini icon="arrow-drop-down" on-click="toggle" > whatevers </paper-fab></div>
-      <div class="pieceInfo medium" >a</div>
-      <div class="pieceInfo big" >a</div>
-      <div class="pieceInfo small" >a</div>
-      <div class="pieceInfo small" >a</div>
-      <div class="pieceInfo small" >a</div>
-    </div>
 
-    <iron-collapse id="collapse">
-      a lot of thigs will be here
-    </iron-collapse>
+    <left-swipe-action>
+      <div swipePanel>
+
+        <div class="horizontal spaceBothSides" >
+          <div id="more" class="pieceInfo small" ><paper-fab mini icon="arrow-drop-down" on-click="toggle" > whatevers </paper-fab></div>
+          <div class="pieceInfo small" > 2 </div>
+          <div class="pieceInfo small" >dd  </div>
+          <div class="pieceInfo big" >colchones de lujo con resortes</div>
+          <div class="pieceInfo small" >200</div>
+          <div class="pieceInfo small" >Bs</div>
+        </div>
+
+        <iron-collapse id="collapse">
+          <div class="horizontal" >
+            <div id="more" class="pieceInfo medium" ></div>
+            <div class="pieceInfo medium" >a</div>
+            <div class="pieceInfo big" >a</div>
+            <div class="pieceInfo small" >a</div>
+            <div class="pieceInfo small" >a</div>
+            <div class="pieceInfo small" >a</div>
+          </div>
+          <div  >
+
+            <left-swipe-action>
+              <div swipePanel>
+
+                <div class="horizontal spaceBothSides" >
+                  <div id="more" class="pieceInfo small" ><paper-fab mini icon="arrow-drop-down" on-click="toggle" > whatevers </paper-fab></div>
+                  <div class="pieceInfo small" > 2 </div>
+                  <div class="pieceInfo small" >dd  </div>
+                  <div class="pieceInfo big" >colchones de lujo con resortes</div>
+                  <div class="pieceInfo small" >200</div>
+                  <div class="pieceInfo small" >Bs</div>
+                </div>
+
+                <iron-collapse id="collapse">
+                  <div class="horizontal" >
+                    <div id="more" class="pieceInfo medium" ></div>
+                    <div class="pieceInfo medium" >a</div>
+                    <div class="pieceInfo big" >a</div>
+                    <div class="pieceInfo small" >a</div>
+                    <div class="pieceInfo small" >a</div>
+                    <div class="pieceInfo small" >a</div>
+                  </div>
+                  <div class="horizontal" >
+                    <div id="more" class="pieceInfo medium" ><paper-fab mini icon="arrow-drop-down" on-click="toggle" > whatevers </paper-fab></div>
+                    <div class="pieceInfo medium" >a</div>
+                    <div class="pieceInfo big" >a</div>
+                    <div class="pieceInfo small" >a</div>
+                    <div class="pieceInfo small" >a</div>
+                    <div class="pieceInfo small" >a</div>
+                  </div>
+                  <div class="horizontal" >
+                    <div id="more" class="pieceInfo medium" ></div>
+                    <div class="pieceInfo medium" >a</div>
+                    <div class="pieceInfo big" >a</div>
+                    <div class="pieceInfo small" >a</div>
+                    <div class="pieceInfo small" >a</div>
+                    <div class="pieceInfo small" >a</div>
+                  </div>
+                  <div class="horizontal" >
+                    <div id="more" class="pieceInfo medium" ><paper-fab mini icon="arrow-drop-down" on-click="toggle" > whatevers </paper-fab></div>
+                    <div class="pieceInfo medium" >a</div>
+                    <div class="pieceInfo big" >a</div>
+                    <div class="pieceInfo small" >a</div>
+                    <div class="pieceInfo small" >a</div>
+                    <div class="pieceInfo small" >a</div>
+                  </div>
+                </iron-collapse>
+
+
+              </div>
+
+
+              <left-swipe-action-button >
+                <paper-fab icon="delete" ></paper-fab>
+              </left-swipe-action-button>
+
+              <left-swipe-action-button >
+                <paper-fab icon="create" on-click="edit"  ></paper-fab>
+              </left-swipe-action-button>
+              <left-swipe-action-button >
+                <paper-fab icon="add"></paper-fab>
+              </left-swipe-action-button>
+            </left-swipe-action>
+
+
+          </div>
+          <div class="horizontal" >
+            <div id="more" class="pieceInfo medium" ></div>
+            <div class="pieceInfo medium" >a</div>
+            <div class="pieceInfo big" >a</div>
+            <div class="pieceInfo small" >a</div>
+            <div class="pieceInfo small" >a</div>
+            <div class="pieceInfo small" >a</div>
+          </div>
+          <div class="horizontal" >
+            <div id="more" class="pieceInfo medium" ><paper-fab mini icon="arrow-drop-down" on-click="toggle" > whatevers </paper-fab></div>
+            <div class="pieceInfo medium" >a</div>
+            <div class="pieceInfo big" >a</div>
+            <div class="pieceInfo small" >a</div>
+            <div class="pieceInfo small" >a</div>
+            <div class="pieceInfo small" >a</div>
+          </div>
+        </iron-collapse>
+
+
+      </div>
+
+
+      <left-swipe-action-button >
+        <paper-fab icon="delete" ></paper-fab>
+      </left-swipe-action-button>
+
+      <left-swipe-action-button >
+        <paper-fab icon="create" on-click="edit"  ></paper-fab>
+      </left-swipe-action-button>
+      <left-swipe-action-button >
+        <paper-fab icon="add"></paper-fab>
+      </left-swipe-action-button>
+    </left-swipe-action>
+
+    <paper-dialog id="animated" with-backdrop entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop>
+      <form is="iron-form" id="formPost" method="post" action="/">
+        <div class="horizontal">
+          <paper-input name="name" label="Name" required class="spaceEnd big" ></paper-input>
+          <paper-input name="priceUnit" label="Price" required  class="spaceEnd small" ></paper-input>
+        </div>
+
+
+        <div class="horizontal">
+          <paper-input name="amount" label="Amount" class="spaceEnd" ></paper-input>
+          <paper-input name="unit" label="Unit" ></paper-input>
+        </div>
+
+        <br><br><br>
+        <paper-button raised onclick="clickHandler(event)">Submit</paper-button>
+      </form>
+    </paper-dialog>
+
+
+
+
+
 
   </template>
 
@@ -59,13 +226,22 @@
     },
     ready: function() {
       this.myItems = [
-        {name: 'Chips', amount: '10' ,unit:'pouch' ,price:'2'},
-        {name: 'Cable', amount: '5' ,unit:'Meters' ,price:'4'},
-        {name: 'Beer', amount: '2' ,unit:'decanters' ,price:'200'},
-        {name: 'Helio ballons', amount: '2' ,unit:'Packs' ,price:'20'},
-        {name: 'Chair', amount: '10' ,unit:'Units' ,price:'5'}
+        {name: 'Chips', amount: '10' ,unit:'pouch' ,price:'2',money:'Bs'},
+        {name: 'Cable', amount: '5' ,unit:'Meters' ,price:'4',money:'Bs'},
+        {name: 'Beer', amount: '2' ,unit:'decanters' ,price:'200',money:'Bs'},
+        {name: 'Helio ballons', amount: '2' ,unit:'Packs' ,price:'20',money:'Bs'},
+        {name: 'Chair', amount: '10' ,unit:'Units' ,price:'5',money:'Bs'}
       ];
+    },
+    edit: function(){
+      var dialog = document.getElementById('animated');
+      if (dialog) {
+        dialog.open();
+      }
     }
+
   })
+
+
 </script>
 
