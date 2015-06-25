@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="presup:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="presup-1.0.war">
+      <element id="artifact" artifact-name="presup:war exploded" />
+    </root>
+  </artifact>
+</component>
